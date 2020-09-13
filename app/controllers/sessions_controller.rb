@@ -1,20 +1,14 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
 
   def create
-    user = find_by_name(params[:session][:name])
-    if user
-      session[:id] = @user.id
-    else
-      redirect_to 'session/new'
-    end
+    session[:id] = params[:username]
+    redirect_to books_path
   end
 
   def destroy
-    @user = session[:id]
-    @user.session.de
-    session.delete :id
+    session.clear
     redirect_to root_path
   end
 end

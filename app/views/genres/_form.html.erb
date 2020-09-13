@@ -1,4 +1,5 @@
 <%= form_for(@genre) do |f|%>
+   <%= render 'shared/genre_error_messages' %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 <br>
