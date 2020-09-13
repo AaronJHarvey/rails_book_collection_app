@@ -6,9 +6,9 @@ Rails.application.routes.draw do
     resources :books, only: [:show, :index, :new]
   end
 
-get '/login', to: 'session#new'
-post '/login', to: 'session#create'
-get '/logout', to: 'session#destroy'
+get 'login', to: 'session#new'
+post 'login', to: 'session#create'
+delete 'logout', to: 'session#destroy'
 
   root 'static#home'
 end

@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+
     if params[:genre_id]
       @books = Genre.find(params[:genre_id]).books
     else
@@ -8,6 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    return head(:forbidden) unless session.include? :id
     @book = Book.find(params[:id])
   end
 
