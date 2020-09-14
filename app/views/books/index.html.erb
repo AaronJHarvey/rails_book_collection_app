@@ -1,7 +1,7 @@
 <h2>Books in this Collection</h2>
 
 <% @books.each do |b| %>
-  <%= b.title %> <br>
+  <%= link_to b.title, book_path(b) %> <br>
 <% end %>
 
 <br>

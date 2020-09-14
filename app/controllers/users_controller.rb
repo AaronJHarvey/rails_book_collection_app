@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       flash[:success] = "Welcome to book collection App!"
-      redirect_to user
+      redirect_to @user
       #if the user_params entered are valid set user as the user being created
       #make make the session[:id] the user.id
       #redirect to the user (user_path(user))

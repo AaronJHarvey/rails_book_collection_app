@@ -3,7 +3,7 @@ before_action :redirect_if_not_logged_in
 
   def index
     if params[:genre_id]
-      @books = Genre.find(params[:genre_id]).current_user_books
+      @books = Genre.find(params[:genre_id]).books
     else
       current_user_books
     end
