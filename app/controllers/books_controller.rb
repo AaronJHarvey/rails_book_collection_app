@@ -1,15 +1,15 @@
 class BooksController < ApplicationController
-  def index
+before_action :redirect_if_not_logged_in
 
+  def index
     if params[:genre_id]
-      @books = Genre.find(params[:genre_id]).books
+      @books = Genre.find(params[:genre_id]).current_user_books
     else
-      @books = Book.all
+      current_user_books
     end
   end
 
   def show
-    return head(:forbidden) unless session.include? :id
     @book = Book.find(params[:id])
   end
 
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    @book = Book.find_by_id(id: params[:id])
+    @book = Book.find(params[:id])
     #uses the inputted book_id to look for a book. If it finds one, sets the current book(@book) to the book with that id
   end
 

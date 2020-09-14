@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :genres, only: [:new, :create, :index] do
     resources :books, only: [:show, :index, :new]
   end
-
+get 'signup', to: 'users#new'
 get 'login', to: 'sessions#new'
 post 'login', to: 'sessions#create'
 delete 'logout', to: 'sessions#destroy'
+
 
   root 'static#home'
 end

@@ -3,3 +3,8 @@
 <% @books.each do |b| %>
   <%= b.title %> <br>
 <% end %>
+
+<br>
+<br>
+<br>
+<%=link_to "Log out", logout_path, method: :delete %>

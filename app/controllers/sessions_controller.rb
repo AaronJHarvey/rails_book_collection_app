@@ -3,12 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    session[:id] = params[:username]
-    redirect_to books_path
+    user = User.find_by(username: params[:sessions][:username])
+    if user && user.authenticate(params[:sessions][:password])
+      log_in user
+      redirect_to user
+      else
+        flash[:danger] = 'Invalid Username/password combination'
+        render 'new'
+      end
   end
 
   def destroy
-    session.clear
+    log_out
     redirect_to root_path
   end
 end

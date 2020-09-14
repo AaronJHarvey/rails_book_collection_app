@@ -1,5 +1,17 @@
-<%= form_tag({controller: 'sessions', action: 'create', method: 'post'}) do %>
-<%= label_tag(:name, "Name:")%>
-<%= text_field_tag(:name)%>
-<%= submit_tag("Login")%>
-<%end%>
+<h1>Login</h1>
+
+<%= form_for(:sessions, url: login_path) do |f|%>
+  <%= f.label :username%>
+  <br>
+  <%= f.text_field :username, class: 'form-control'%>
+  <br>
+  <br>
+  <%= f.label :password%>
+  <br>
+  <%= f.password_field :password, class: 'form-control'%>
+<br>
+<br>
+  <%= f.submit "Login"%>
+  <% end %>
+
+  <p>New User? <%= link_to "Sign Up Now!", signup_path%></p>

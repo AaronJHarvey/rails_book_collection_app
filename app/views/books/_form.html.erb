@@ -17,9 +17,14 @@
 <br>
 <%= f.label :genre_id %>
 <br>
-<%= f.text_field :genre_id %>
+<%= f.text_field :genre_id %> #make genre a dropdown
 <br>
 
 
   <%= f.submit%>
   <% end %>
+
+  <br>
+  <br>
+  <br>
+  <%=link_to "Log out", logout_path, method: :delete %>
