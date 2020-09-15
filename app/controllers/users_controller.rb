@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to books_path
+    @user_genres = @user.genres.uniq
+    render :show
   end
 
   private

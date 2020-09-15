@@ -1,5 +1,9 @@
 <%= @user.username%>
 <br>
+<% @user_genres.each do |g|%>
+  <%= g.name.upcase %>
+  <%end%>
+<br>
 <br>
 <br>
 <%=link_to "Log out", logout_path, method: :delete %>
