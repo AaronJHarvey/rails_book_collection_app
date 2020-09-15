@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 before_action :redirect_if_not_logged_in
+before_action :current_user_books
 
   def index
     if params[:genre_id]
@@ -35,10 +36,10 @@ before_action :redirect_if_not_logged_in
   end
 
   def update
-    book = Book.find_by_id(id: params[:id])
-    book.update(book_params)
-    if book.save
-      redirect_to book_path(book)
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    if @book.save
+      redirect_to book_path(@book)
     else
       render :edit
     end
@@ -47,7 +48,7 @@ before_action :redirect_if_not_logged_in
   end
 
   def destroy
-    @book = book.find_by_id(id: params[:id])
+    @book = book.find(params[:id])
     @book.delete
     redirect_to books_path
     #uses the book_id that was input to set the working book
