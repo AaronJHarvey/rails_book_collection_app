@@ -6,7 +6,7 @@ before_action :current_user_books
     if params[:genre_id]
       @books = Genre.find(params[:genre_id]).books
     else
-      current_user_books
+      @book = current_user_books
     end
   end
 
@@ -15,7 +15,7 @@ before_action :current_user_books
   end
 
   def new
-    @book = Book.new(genre_id: params[:genre_id])
+    @book = Book.new(genre_id: params[:genre_id], user_id: params[:user_id])
   end
 
   def create
