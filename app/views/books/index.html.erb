@@ -1,5 +1,8 @@
 <h2>Books in this Collection</h2>
 
+<%= link_to "Read", read_books_path%>
+<%= link_to "Unread", unread_books_path%>  <br>
+
 <% @books.each do |b| %>
   <%= link_to b.title, book_path(b) %> <br>
 <% end %>

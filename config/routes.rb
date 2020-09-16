@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
-  resources :books
+  resources :books do
+    collection do
+       get :read
+       get :unread
+    end
+  end
   resources :genres, only: [:new, :create, :index] do
     resources :books, only: [:show, :index, :new]
   end

@@ -10,16 +10,13 @@
 <%= f.text_field :author %>
 <br>
 <br>
-<%= f.hidden_field :user_id, value: current_user_id %>
-<br>
-
-<br>
 <%= f.label :genre_id %>
 <br>
 <%= collection_select(:book, :genre_id, Genre.all, :id, :name,{}, {:multiple => false})%>
 <br>
-
-
+<%= f.label "Read" %>
+  <%= f.check_box :read %> <br>
+  <%= f.hidden_field :user_id, value: current_user_id %>
   <%= f.submit%>
   <% end %>
 

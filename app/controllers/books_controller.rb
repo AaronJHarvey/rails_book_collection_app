@@ -1,12 +1,11 @@
 class BooksController < ApplicationController
 before_action :redirect_if_not_logged_in
-before_action :current_user_books
 
   def index
     if params[:genre_id]
-      @books = Genre.find(params[:genre_id]).books
+      @books = current_user_books.where(genre_id: params[:genre_id])
     else
-      @book = current_user_books
+      @books = current_user_books
     end
   end
 
@@ -15,7 +14,7 @@ before_action :current_user_books
   end
 
   def new
-    @book = Book.new(genre_id: params[:genre_id], user_id: params[:user_id])
+    @book = Book.new(genre_id: params[:genre_id])
   end
 
   def create
@@ -57,13 +56,24 @@ before_action :current_user_books
     #redirects to the index view (books_path)
   end
 
+  def read
+    @books = Book.read.where(user_id: @current_user.id)
+    render :index
+  end
+
+  def unread
+    @books = Book.unread.where(user_id: @current_user.id)
+    render :index
+  end
+
   private
     def book_params
       params.require(:book).permit(
         :title,
         :author,
         :user_id,
-        :genre_id
+        :genre_id,
+        :read
       )
     end
 end

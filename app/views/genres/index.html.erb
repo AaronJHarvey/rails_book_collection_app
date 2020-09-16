@@ -1,4 +1,4 @@
 <h1>Genres</h1>
   <% @genres.each do |genre|%>
-    <%= link_to "#{genre.name}", genre_books_path(genre) %> <br>
+    <%= link_to "#{genre.name.capitalize}", genre_books_path(genre) %> <br>
   <% end %>
