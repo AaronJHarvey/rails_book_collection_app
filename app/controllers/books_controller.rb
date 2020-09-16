@@ -47,7 +47,7 @@ before_action :redirect_if_not_logged_in
   end
 
   def destroy
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
     @book.delete
     redirect_to books_path
     #uses the book_id that was input to set the working book

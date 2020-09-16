@@ -4,4 +4,9 @@
 <br>
 <br>
 <br>
+<%= link_to "Edit This Book", edit_book_path(@book)%>
+<br>
+<%=link_to "Remove book from your Collection", book_url, method: :delete %>
+<br>
+
 <%=link_to "Log out", logout_path, method: :delete %>
