@@ -2,3 +2,5 @@
   <% @genres.each do |genre|%>
     <%= link_to "#{genre.name.capitalize}", genre_books_path(genre) %> <br>
   <% end %>
+
+  <%= link_to "Create Genre", new_genre_path%>
