@@ -1,17 +1,14 @@
 <h1>Login</h1>
 
-<%= form_for(:sessions, url: login_path) do |f|%>
-  <%= f.label :username%>
+<%= form_tag(login_path) %>
+  <%= label_tag "Email:"%>
+  <%= text_field_tag :email,'', :placeholder => "Please Put In Your Email"%>
   <br>
-  <%= f.text_field :username, class: 'form-control'%>
+  <%= label_tag "Password:"%>
+  <%= password_field_tag :password,'', :placeholder => "Please Input Your Password"  %>
   <br>
+  <%= submit_tag "Login"%>
   <br>
-  <%= f.label :password%>
-  <br>
-  <%= f.password_field :password, class: 'form-control'%>
-<br>
-<br>
-  <%= f.submit "Login"%>
-  <% end %>
+  <%= link_to "Login with Github", "/auth/github"%>
 
   <p>New User? <%= link_to "Sign Up Now!", signup_path%></p>
