@@ -1,24 +1,7 @@
-# README
+This app allows the user to register/log into a database where they can view, add, and edit books in their collection as well as the genres that the books have
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+execute
 
-Things you may want to cover:
+'bundle install '
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+in order to make sure the app works properly for you. 
