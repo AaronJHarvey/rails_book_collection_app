@@ -21,7 +21,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_genres = @user.genres.uniq
-    render :show
+    if @user_genres.nil?
+      @genres_in_database = Genre.all.uniq
+      render :show
+    end
   end
 
   private

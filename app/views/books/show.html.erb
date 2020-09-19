@@ -1,12 +1,14 @@
 <h2><%= @book.title %></h2>
 <br>
-<p> This book is written by <%=@book.author.split(" ").map {|word| word.capitalize}.join(" ")%></p>
+<p> This book is written by <%=@book.author.split(" ").map {|word| word.capitalize}.join(" ")%>.</p>
 <br>
+<p>This book is in the <%=@book.genre.name.split(" ").map {|word| word.capitalize}.join(" ")%> genre.</p>
 <br>
 <br>
 <%= link_to "Edit This Book", edit_book_path(@book)%>
 <br>
 <%=link_to "Remove book from your Collection", book_url, method: :delete %>
 <br>
-
+<%= link_to "Back to collection", books_path %>
+<br>
 <%=link_to "Log out", logout_path, method: :delete %>

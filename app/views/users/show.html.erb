@@ -1,10 +1,11 @@
 <h1>Hello! I am <%= @user.username%> and I like to read books in the following genre(s):</h1> <br>
 <h2><% @user_genres.each do |g|%>
-  <%=g.name.capitalize %>
+  <%= g.name.capitalize %> <br>
   <%end%></h2>
 
 <br>
 <br>
 <br>
+<%= link_to "Add Book To Your Collection!", new_book_path%> <br>
 <%= link_to "Create Genre", new_genre_path%><br>
 <%=link_to "Log out", logout_path, method: :delete %>

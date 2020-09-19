@@ -2,7 +2,6 @@ class BooksController < ApplicationController
 before_action :redirect_if_not_logged_in
 
   def index
-    raise session[:user_id].inspect
     if params[:genre_id]
       @books = current_user_books.where(genre_id: params[:genre_id])
     else
@@ -58,7 +57,8 @@ before_action :redirect_if_not_logged_in
   end
 
   def read
-    @books = Book.read.where(user_id: @current_user.id)
+   #@books = Book.read.where(user_id: @current_user.id)
+   @books = current_user.books.read
     render :index
   end
 
